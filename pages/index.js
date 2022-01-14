@@ -4,11 +4,13 @@ import Card from './Card';
 import { initStore, initialCards, addItem } from '../store';
 
 class Index extends React.Component {
-    static async getInitialProps ({ store }) {
-        return store.dispatch(initialCards());
+    static async getInitialProps (props) {
+        console.log('props',props);
+        return Store.dispatch ? Store.dispatch(initialCards()) : {};
     }
 
     render () {
+        console.log('this.props',this.props);
         return (
             <div className={styles.app}>
                 <header className={styles.header}>
@@ -18,9 +20,9 @@ class Index extends React.Component {
                 </header>
                 <div className={styles.grid}>
                    {
-                       this.props.cards.map((card) => (
-                           <Card key={card.id} />
-                       ))
+                    //    this.props.cards.map((card) => (
+                    //        <Card key={card.id} />
+                    //    ))
                    }
                 </div>
                 {/* <button onClick={() => dispatch(addItem())}></button> */}

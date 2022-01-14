@@ -44,4 +44,4 @@ const store = (initialState = startState) => {
     return createStore(reducer, initialState);
 };
 
-export const initStore = createWrapper(store);
+export const initStore = createWrapper({store});
